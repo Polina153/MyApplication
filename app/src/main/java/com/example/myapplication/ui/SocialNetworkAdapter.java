@@ -23,7 +23,7 @@ import java.text.SimpleDateFormat;
 public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdapter.ViewHolderMain> {
 
     private final static String TAG = "SocialNetworkAdapter";
-    private CardsSource dataSource;
+    private final CardsSource dataSource;
     private final Fragment fragment;
     private MyItemClickListener myItemClickListener;  // Слушатель будет устанавливаться извне
     private int menuPosition;
@@ -85,15 +85,15 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
     public class ViewHolderMain extends RecyclerView.ViewHolder {
 
         private TextView title;
-        private TextView description;
-        private CheckBox like;
+        private TextView subtitle;
+        private CheckBox isImportant;
         private TextView date;
 
         public ViewHolderMain(@NonNull final View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
-            description = itemView.findViewById(R.id.subtitle);
-            like = itemView.findViewById(R.id.importance);
+            subtitle = itemView.findViewById(R.id.subtitle);
+            isImportant = itemView.findViewById(R.id.importance);
             date = itemView.findViewById(R.id.date);
 
             registerContextMenu(itemView);
@@ -136,8 +136,8 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
         @SuppressLint("SimpleDateFormat")
         public void setData(NoteData noteData) {
             title.setText(noteData.getTitle());
-            description.setText(noteData.getSubtitle());
-            like.setChecked(noteData.isImportant());
+            subtitle.setText(noteData.getSubtitle());
+            isImportant.setChecked(noteData.isImportant());
             date.setText(new SimpleDateFormat("dd-MM-yy").format(noteData.getDate()));
         }
     }
