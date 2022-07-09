@@ -22,9 +22,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.data.NoteData;
 import com.example.myapplication.data.CardsSource;
 import com.example.myapplication.data.CardsSourceImpl;
+import com.example.myapplication.data.NoteData;
 import com.example.myapplication.observe.Observer;
 import com.example.myapplication.observe.Publisher;
 
@@ -186,7 +186,7 @@ public class SocialNetworkFragment extends Fragment {
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
-        int position = adapter.getMenuPosition();
+        int position = adapter.getListItemPosition();
         switch (item.getItemId()) {
             case R.id.action_update:
                /* com.example.myapplication.data.updateCardData(position,

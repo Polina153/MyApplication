@@ -24,15 +24,15 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
 
     private final static String TAG = "SocialNetworkAdapter";
     private final CardsSource dataSource;
-    private final Fragment fragment;
-    private MyItemClickListener myItemClickListener;  // Слушатель будет устанавливаться извне
-    private int menuPosition;
+    private final Fragment listItemFragment;// FIXME Remove fragment from here
+    private MyItemClickListener myItemClickListener;  // TODO Слушатель будет устанавливаться извне
+    private int listItemPosition;
 
     // Передаём в конструктор источник данных
     // В нашем случае это массив, но может быть и запрос к БД
-    public SocialNetworkAdapter(CardsSource dataSource, Fragment fragment) {
+    public SocialNetworkAdapter(CardsSource dataSource, Fragment listItemFragment) {
         this.dataSource = dataSource;
-        this.fragment = fragment;
+        this.listItemFragment = listItemFragment;
     }
 
     // Создать новый элемент пользовательского интерфейса
@@ -70,8 +70,8 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
         this.myItemClickListener = itemClickListener;
     }
 
-    public int getMenuPosition() {
-        return menuPosition;
+    public int getListItemPosition() {
+        return listItemPosition;
     }
 
     // Интерфейс для обработки нажатий, как в ListView
@@ -113,7 +113,7 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
                 @RequiresApi(api = Build.VERSION_CODES.N)
                 @Override
                 public boolean onLongClick(View v) {
-                    menuPosition = getLayoutPosition();
+                    listItemPosition = getLayoutPosition();
                     itemView.showContextMenu(10, 10);
                     return true;
                 }
@@ -121,15 +121,15 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
         }
 
         private void registerContextMenu(@NonNull View itemView) {
-            if (fragment != null) {
+            if (listItemFragment != null) {
                 itemView.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {
-                        menuPosition = getLayoutPosition();
+                        listItemPosition = getLayoutPosition();
                         return false;
                     }
                 });
-                fragment.registerForContextMenu(itemView);
+                listItemFragment.registerForContextMenu(itemView);
             }
         }
 
