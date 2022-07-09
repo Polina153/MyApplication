@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title1">Note1</string>
+    <string name="title2">Note2</string>
+    <string name="title3">Note3</string>
+    <string name="title4">Note4</string>
+    <string name="title5">Note5</string>
+    <string name="title6">Note6</string>
+    <string name="title7">Note7</string>
+    <string name="subtitle1">Holidays</string>
+    <string name="subtitle2">To do</string>
+    <string name="subtitle3">To buy</string>
+    <string name="subtitle4">Books</string>
+    <string name="subtitle5">Sports</string>
+    <string name="subtitle6">Friends</string>
+    <string name="subtitle7">Party</string>
+    <string name="add">Add</string>
+    <string name="clear">Clear all</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="title">Title</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="text_of_the_note">Click to write</string>
+
+</resources>

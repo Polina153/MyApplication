@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="titles">
+        <item>@string/title1</item>
+        <item>@string/title2</item>
+        <item>@string/title3</item>
+        <item>@string/title4</item>
+        <item>@string/title5</item>
+        <item>@string/title6</item>
+        <item>@string/title7</item>
+    </string-array>
+
+    <string-array name="subtitles">
+        <item>@string/subtitle1</item>
+        <item>@string/subtitle2</item>
+        <item>@string/subtitle3</item>
+        <item>@string/subtitle4</item>
+        <item>@string/subtitle5</item>
+        <item>@string/subtitle6</item>
+        <item>@string/subtitle7</item>
+    </string-array>
+
+</resources>
