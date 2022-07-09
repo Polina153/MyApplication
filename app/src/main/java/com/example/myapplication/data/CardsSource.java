@@ -1,6 +1,7 @@
 package com.example.myapplication.data;
 
 public interface CardsSource {
+
     NoteData getCardData(int position);
 
     int size();
