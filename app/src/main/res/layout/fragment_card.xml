@@ -47,6 +47,14 @@
             android:calendarViewShown="false"
             android:datePickerMode="spinner"
             />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/save"
+            />
+
         <!-- также можно делать режим календаря
         android:datePickerMode="calendar"
         и режим отображения календаря в spinner-режиме

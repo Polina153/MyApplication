@@ -21,5 +21,6 @@
     <string name="title">Title</string>
     <string name="subtitle">Subtitle</string>
     <string name="text_of_the_note">Click to write</string>
+    <string name="save">Save</string>
 
 </resources>
