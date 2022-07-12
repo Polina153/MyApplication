@@ -10,7 +10,7 @@ import com.example.myapplication.ui.SocialNetworkFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Pushistik
+    //Pushistik wants to hug!!!
     private Navigation navigation;
     private Publisher publisher = new Publisher();
 
