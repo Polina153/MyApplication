@@ -11,6 +11,7 @@ import com.example.myapplication.ui.SocialNetworkFragment;
 public class MainActivity extends AppCompatActivity {
 
     //Pushistik wants to hug!!!
+    //Really wants
     private Navigation navigation;
     private Publisher publisher = new Publisher();
 
