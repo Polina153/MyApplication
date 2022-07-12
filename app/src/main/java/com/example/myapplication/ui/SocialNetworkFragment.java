@@ -10,7 +10,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,7 +30,7 @@ import com.example.myapplication.data.NoteData;
 import com.example.myapplication.observe.Observer;
 import com.example.myapplication.observe.Publisher;
 
-public class SocialNetworkFragment extends Fragment {
+public class SocialNetworkFragment extends Fragment implements View.OnClickListener {
 
     private static final int MY_DEFAULT_DURATION = 1000;
     private CardsSource cardsSource;
@@ -36,14 +38,31 @@ public class SocialNetworkFragment extends Fragment {
     private RecyclerView recyclerView;
     private Navigation navigation;
     private Publisher publisher;
+    private Button button;
+    private View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(requireContext(), "Click", Toast.LENGTH_SHORT).show();
+        }
+    };
+
     // признак, что при повторном открытии фрагмента
     // (возврате из фрагмента, добавляющего запись)
     // надо прыгнуть на последнюю запись
     private boolean moveToLastPosition;
 
-
     public static SocialNetworkFragment newInstance() {
         return new SocialNetworkFragment();
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.my_button:
+                Toast.makeText(requireContext(), "Click", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 
     @Override
@@ -66,6 +85,21 @@ public class SocialNetworkFragment extends Fragment {
         initView(view);
         setHasOptionsMenu(true);
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        button = view.findViewById(R.id.my_button);
+        button.setOnClickListener(/*this*//*listener*/new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(requireContext(), "Click", Toast.LENGTH_SHORT).show();
+            }
+        });
+        Toolbar toolbar = view.findViewById(R.id.my_toolbar);
+        
     }
 
     @Override
@@ -103,6 +137,9 @@ public class SocialNetworkFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                Toast.makeText(requireContext(), "Click", Toast.LENGTH_SHORT).show();
+                return true;
             case R.id.action_add:
               /*  com.example.myapplication.data.addCardData(new CardData("Заголовок " + com.example.myapplication.data.size(),
                         "Описание " + com.example.myapplication.data.size(),
@@ -211,5 +248,4 @@ public class SocialNetworkFragment extends Fragment {
         }
         return super.onContextItemSelected(item);
     }
-
 }

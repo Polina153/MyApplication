@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         navigation = new Navigation(getSupportFragmentManager());
-        initToolbar();
+        //initToolbar();
+
         //addFragment(SocialNetworkFragment.newInstance());
         getNavigation().addFragment(SocialNetworkFragment.newInstance(), false);
     }
@@ -31,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         //setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
     }
 
     /*    private void addFragment(Fragment fragment) {

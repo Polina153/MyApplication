@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.MainActivity;
@@ -20,6 +21,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class CardFragment extends Fragment {
+
     private static final String ARG_CARD_DATA = "Param_CardData";
 
     private NoteData noteData;      // Данные по карточке
@@ -28,20 +30,6 @@ public class CardFragment extends Fragment {
     private TextInputEditText title;
     private TextInputEditText subtitle;
     private DatePicker datePicker;
-
-    // Для редактирования данных
-    public static CardFragment newInstance(NoteData noteData) {
-        CardFragment fragment = new CardFragment();
-        Bundle args = new Bundle();
-        args.putParcelable(ARG_CARD_DATA, noteData);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    // Для добавления новых данных
-    public static CardFragment newInstance() {
-        return new CardFragment();
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,19 +65,28 @@ public class CardFragment extends Fragment {
     }
 
     // Здесь соберём данные из views
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+    }
+
     @Override
     public void onStop() {
         super.onStop();
         noteData = collectCardData();
     }
-
     // Здесь передадим данные в паблишер
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         publisher.notifySingle(noteData);
     }
-
     private NoteData collectCardData(){
         String title = this.title.getText().toString();
         String subtitle = this.subtitle.getText().toString();
@@ -104,6 +101,7 @@ public class CardFragment extends Fragment {
     }
 
     // Получение даты из DatePicker
+
     private Date getDateFromDatePicker() {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, this.datePicker.getYear());
@@ -111,7 +109,6 @@ public class CardFragment extends Fragment {
         cal.set(Calendar.DAY_OF_MONTH, this.datePicker.getDayOfMonth());
         return cal.getTime();
     }
-
     private void initView(View view) {
         title = view.findViewById(R.id.inputTitle);
         subtitle = view.findViewById(R.id.inputSubtitle);
@@ -125,6 +122,7 @@ public class CardFragment extends Fragment {
     }
 
     // Установка даты в DatePicker
+
     private void initDatePicker(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -132,5 +130,17 @@ public class CardFragment extends Fragment {
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH),
                 null);
+    }
+
+    public static CardFragment newInstance() {
+        return new CardFragment();
+    }
+
+    public static CardFragment newInstance(NoteData noteData) {
+        CardFragment fragment = new CardFragment();
+        Bundle args = new Bundle();
+        args.putParcelable(ARG_CARD_DATA, noteData);
+        fragment.setArguments(args);
+        return fragment;
     }
 }
