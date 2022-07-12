@@ -10,6 +10,7 @@ import com.example.myapplication.ui.SocialNetworkFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Pushistik
     private Navigation navigation;
     private Publisher publisher = new Publisher();
 
