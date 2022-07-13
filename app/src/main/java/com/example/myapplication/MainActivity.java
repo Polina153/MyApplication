@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,25 +15,24 @@ public class MainActivity extends AppCompatActivity {
     //Really wants
     //Mrmrmr
     private Navigation navigation;
-    private Publisher publisher = new Publisher();
+    private final Publisher publisher = new Publisher();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         navigation = new Navigation(getSupportFragmentManager());
-        //initToolbar();
 
-        //addFragment(SocialNetworkFragment.newInstance());
         getNavigation().addFragment(SocialNetworkFragment.newInstance(), false);
     }
 
-    private void initToolbar() {
+   /* private void initToolbar() {
         //Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-    }
+    }*/
 
     /*    private void addFragment(Fragment fragment) {
             //Получить менеджер фрагментов

@@ -1,6 +1,7 @@
 package com.example.myapplication.ui;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -84,6 +85,18 @@ public class SocialNetworkFragment extends Fragment implements View.OnClickListe
         //com.example.myapplication.data = new CardsSourceImpl(getResources()).init();
         initView(view);
         setHasOptionsMenu(true);
+        Activity context = getActivity();
+
+        getActivity().getBaseContext();
+        getContext().getApplicationContext();
+
+        requireActivity().getBaseContext();
+        requireContext().getApplicationContext();
+
+
+        if (context != null) {
+            Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
+        }
         return view;
     }
 
@@ -99,7 +112,6 @@ public class SocialNetworkFragment extends Fragment implements View.OnClickListe
             }
         });
         Toolbar toolbar = view.findViewById(R.id.my_toolbar);
-        
     }
 
     @Override
